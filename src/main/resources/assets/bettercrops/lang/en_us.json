@@ -4,5 +4,8 @@
   "item.bettercrops.pebble": "Pebble",
 
   "block.bettercrops.mud": "Mud",
-  "block.bettercrops.dried_mud": "Dried Mud"
+  "block.bettercrops.dried_mud": "Dried Mud",
+  "block.bettercrops.packed_dirt": "Packed Dirt",
+
+  "itemGroup.betterCropsTab": "Better Crops"
 }
