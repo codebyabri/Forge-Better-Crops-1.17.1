@@ -3,8 +3,8 @@ package net.abri.bettercrops.block;
 import net.abri.bettercrops.Main;
 import net.abri.bettercrops.item.ModCreativeModeTab;
 import net.abri.bettercrops.item.ModItems;
+import net.abri.bettercrops.item.custom.PieceOfWoodBlockItem;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
@@ -15,9 +15,12 @@ import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.function.Function;
 import java.util.function.Supplier;
 
+@SuppressWarnings("unused")
 public class ModBlocks {
+
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, Main.MOD_ID);
 
@@ -40,33 +43,66 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.of(Material.DIRT).sound(SoundType.DRIPSTONE_BLOCK).requiresCorrectToolForDrops().strength(1.5f)));
 
     public static final RegistryObject<Block> PIECE_OF_WOOD = registerBlock("piece_of_wood",
-            () -> new PieceOfWood(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).instabreak()));
+            () -> new PieceOfWoodBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).instabreak()),
+            block -> new PieceOfWoodBlockItem(block, new Item.Properties().tab(ModCreativeModeTab.BETTER_CROPS))
+    );
 
     public static final RegistryObject<Block> PEBBLE = registerBlock("pebble",
-            () -> new PieceOfWood(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).instabreak()));
+            () -> new Pebble(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).instabreak()));
 
     public static final RegistryObject<Block> ROCK = registerBlock("rock",
-            () -> new PieceOfWood(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).instabreak()));
+            () -> new Rock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).instabreak()));
 
-    private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
-        RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerBlockItem(name, toReturn, tab);
+//    private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
+//        RegistryObject<T> toReturn = BLOCKS.register(name, block);
+//        registerBlockItem(name, toReturn, tab);
+//        return toReturn;
+//    }
+//
+//    private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block, CreativeModeTab tab) {
+//        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(),
+//                new Item.Properties().tab(tab)));
+//    }
+
+    /**
+     * Registers a block with given name and {@link Block} supplier.  This registers a block with a default block item.
+     *
+     * @param name          name of the block to register
+     * @param blockSupplier supplies {@link Block} instances
+     * @param <T>           the actual block type
+     * @return a {@link RegistryObject} that represents the registration of the block
+     */
+    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> blockSupplier) {
+        RegistryObject<T> toReturn = BLOCKS.register(name, blockSupplier);
+        registerBlockItem(name, toReturn, ModBlocks::createDefaultBlockItem);
         return toReturn;
     }
 
-    private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block, CreativeModeTab tab) {
-        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(),
-                new Item.Properties().tab(tab)));
+    private static BlockItem createDefaultBlockItem(Block block) {
+        return new BlockItem(block, new Item.Properties().tab(ModCreativeModeTab.BETTER_CROPS));
     }
-    private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block) {
-        RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerBlockItem(name, toReturn);
+
+    /**
+     * Registers a block with given name and {@link Block} supplier.  This registers a block with a custom block item.
+     *
+     * @param name          name of the block to register
+     * @param blockSupplier supplies {@link Block} instances
+     * @param blockItemSupplier supplies a custom {@link BlockItem}
+     * @param <T>           the actual block type
+     * @return a {@link RegistryObject} that represents the registration of the block
+     */
+    private static <T extends Block> RegistryObject<T> registerBlock(String name,
+                                                                     Supplier<T> blockSupplier,
+                                                                     Function<Block, BlockItem> blockItemSupplier) {
+        RegistryObject<T> toReturn = BLOCKS.register(name, blockSupplier);
+        registerBlockItem(name, toReturn, blockItemSupplier);
         return toReturn;
     }
 
-    private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block) {
-        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(),
-                new Item.Properties().tab(ModCreativeModeTab.BETTER_CROPS)));
+    private static <T extends Block> void registerBlockItem(String name,
+                                                            RegistryObject<T> block,
+                                                            Function<Block, BlockItem> blockItemSupplier) {
+        ModItems.ITEMS.register(name, () -> blockItemSupplier.apply(block.get()));
     }
 
     public static void register(IEventBus eventBus) {

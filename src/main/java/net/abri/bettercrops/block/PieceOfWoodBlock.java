@@ -7,11 +7,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public final class PieceOfWood extends Block {
+public final class PieceOfWoodBlock extends Block {
 
     private static final VoxelShape SHAPE = Block.box(1, 0, 1, 15, 1, 15);
 
-    public PieceOfWood(final Properties properties) {
+    public PieceOfWoodBlock(final Properties properties) {
         super(properties);
     }
 
