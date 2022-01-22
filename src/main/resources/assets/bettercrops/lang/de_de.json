@@ -1,0 +1,14 @@
+{
+  "block.bettercrops.mud": "Schlamm",
+  "block.bettercrops.dried_mud": "Getrockneter Schlamm",
+  "block.bettercrops.packed_dirt": "Harte Erde",
+  "block.bettercrops.strata": "Gesteinsschicht",
+  "block.bettercrops.slate": "Schieferstein",
+  "block.bettercrops.limestone": "Kalkstein",
+
+  "block.bettercrops.piece_of_wood": "Holzstamm",
+  "block.bettercrops.pebble": "Steinchen",
+  "block.bettercrops.rock": "Stein",
+
+  "itemGroup.betterCropsTab": "Better Crops"
+}
