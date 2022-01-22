@@ -15,6 +15,6 @@ public final class PieceOfWoodBlockItem extends BlockItem {
 
     @Override
     public int getBurnTime(ItemStack itemStack, @Nullable RecipeType<?> recipeType) {
-        return 25;
+        return 100;
     }
 }
