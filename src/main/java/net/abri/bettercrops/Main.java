@@ -39,7 +39,7 @@ public class Main {
 
     private void setup(final FMLCommonSetupEvent event) {
         // crops and food to the power
-        LOGGER.info("HELLO FROM PREINIT");
+        LOGGER.info("HELLO FROM ABRI");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
     }
 }

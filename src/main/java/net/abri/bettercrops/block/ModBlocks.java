@@ -21,17 +21,32 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, Main.MOD_ID);
 
-    public static final RegistryObject<Block> BASALT_SAND = registerBlock("basalt_sand",
-            () -> new Block(BlockBehaviour.Properties.of(Material.SAND).strength(0.5f).requiresCorrectToolForDrops()));
-
     public static final RegistryObject<Block> DRIED_MUD = registerBlock("dried_mud",
-            () -> new Block(BlockBehaviour.Properties.of(Material.STONE).strength(0.5f).requiresCorrectToolForDrops()));
+            () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.BASALT).strength(0.5f)));
+
+    public static final RegistryObject<Block> LIMESTONE = registerBlock("limestone",
+            () -> new Block(BlockBehaviour.Properties.of(Material.DIRT).sound(SoundType.CALCITE).requiresCorrectToolForDrops().strength(1.5f)));
 
     public static final RegistryObject<Block> MUD = registerBlock("mud",
-            () -> new Block(BlockBehaviour.Properties.of(Material.DIRT).strength(0.5f).requiresCorrectToolForDrops()));
+            () -> new Block(BlockBehaviour.Properties.of(Material.DIRT).sound(SoundType.ROOTED_DIRT).strength(0.6f)));
 
     public static final RegistryObject<Block> PACKED_DIRT = registerBlock("packed_dirt",
-            () -> new Block(BlockBehaviour.Properties.of(Material.DIRT).strength(0.5f).requiresCorrectToolForDrops()));
+            () -> new Block(BlockBehaviour.Properties.of(Material.DIRT).sound(SoundType.ROOTED_DIRT).strength(0.6f)));
+
+    public static final RegistryObject<Block> SLATE = registerBlock("slate",
+            () -> new Block(BlockBehaviour.Properties.of(Material.DIRT).sound(SoundType.DEEPSLATE_BRICKS).requiresCorrectToolForDrops().strength(1.5f)));
+
+    public static final RegistryObject<Block> STRATA = registerBlock("strata",
+            () -> new Block(BlockBehaviour.Properties.of(Material.DIRT).sound(SoundType.DRIPSTONE_BLOCK).requiresCorrectToolForDrops().strength(1.5f)));
+
+    public static final RegistryObject<Block> PIECE_OF_WOOD = registerBlock("piece_of_wood",
+            () -> new PieceOfWood(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).instabreak()));
+
+    public static final RegistryObject<Block> PEBBLE = registerBlock("pebble",
+            () -> new PieceOfWood(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).instabreak()));
+
+    public static final RegistryObject<Block> ROCK = registerBlock("rock",
+            () -> new PieceOfWood(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).instabreak()));
 
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

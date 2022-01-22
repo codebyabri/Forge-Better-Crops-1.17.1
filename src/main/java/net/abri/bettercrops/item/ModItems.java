@@ -12,17 +12,6 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, Main.MOD_ID);
 
-    public static final RegistryObject<Item> PEBBLE = ITEMS.register("pebble",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.BETTER_CROPS)));
-
-    public static final RegistryObject<Item> PIECE_OF_WOOD = ITEMS.register("piece_of_wood",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.BETTER_CROPS)));
-
-    public static final RegistryObject<Item> ROCK = ITEMS.register("rock",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.BETTER_CROPS)));
-
-
-
     public static void  register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
