@@ -48,21 +48,10 @@ public class ModBlocks {
     );
 
     public static final RegistryObject<Block> PEBBLE = registerBlock("pebble",
-            () -> new Pebble(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).instabreak()));
+            () -> new PebbleBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).instabreak()));
 
     public static final RegistryObject<Block> ROCK = registerBlock("rock",
-            () -> new Rock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).instabreak()));
-
-//    private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
-//        RegistryObject<T> toReturn = BLOCKS.register(name, block);
-//        registerBlockItem(name, toReturn, tab);
-//        return toReturn;
-//    }
-//
-//    private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block, CreativeModeTab tab) {
-//        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(),
-//                new Item.Properties().tab(tab)));
-//    }
+            () -> new RockBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).instabreak()));
 
     /**
      * Registers a block with given name and {@link Block} supplier.  This registers a block with a default block item.
