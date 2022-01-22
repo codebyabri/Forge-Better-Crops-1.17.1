@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "bettercrops:mud",
+    "bettercrops:dried_mud",
+    "bettercrops:packed_dirt"
+  ]
+}
