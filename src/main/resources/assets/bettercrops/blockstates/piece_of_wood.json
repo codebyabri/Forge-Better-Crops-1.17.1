@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "": [
+      { "model": "bettercrops:block/piece_of_wood" },
+      { "model": "bettercrops:block/piece_of_wood", "y": 90  },
+      { "model": "bettercrops:block/piece_of_wood", "y": 180 },
+      { "model": "bettercrops:block/piece_of_wood", "y": 270 },
+      { "model": "bettercrops:block/piece_of_wood" },
+      { "model": "bettercrops:block/piece_of_wood", "y": 90  },
+      { "model": "bettercrops:block/piece_of_wood", "y": 180 },
+      { "model": "bettercrops:block/piece_of_wood", "y": 270 },
+      { "model": "bettercrops:block/piece_of_wood" },
+      { "model": "bettercrops:block/piece_of_wood", "y": 90  },
+      { "model": "bettercrops:block/piece_of_wood", "y": 180 },
+      { "model": "bettercrops:block/piece_of_wood", "y": 270 },
+      { "model": "bettercrops:block/piece_of_wood" },
+      { "model": "bettercrops:block/piece_of_wood", "y": 90  },
+      { "model": "bettercrops:block/piece_of_wood", "y": 180 },
+      { "model": "bettercrops:block/piece_of_wood", "y": 270 }
+    ]
+  }
+}
