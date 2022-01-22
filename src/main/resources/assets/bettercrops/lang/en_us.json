@@ -1,11 +1,14 @@
 {
-  "item.bettercrops.rock": "Rock",
-  "item.bettercrops.piece_of_wood": "Piece of Wood",
-  "item.bettercrops.pebble": "Pebble",
-
   "block.bettercrops.mud": "Mud",
   "block.bettercrops.dried_mud": "Dried Mud",
   "block.bettercrops.packed_dirt": "Packed Dirt",
+  "block.bettercrops.strata": "Strata",
+  "block.bettercrops.slate": "Slate",
+  "block.bettercrops.limestone": "Limestone",
+
+  "block.bettercrops.piece_of_wood": "Piece of Wood",
+  "block.bettercrops.pebble": "Pebble",
+  "block.bettercrops.rock": "Rock",
 
   "itemGroup.betterCropsTab": "Better Crops"
 }
